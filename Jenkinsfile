@@ -1,28 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('Print hello') {
-      parallel {
-        stage('Print hello') {
-          steps {
-            echo 'Hello'
-          }
-        }
-
-        stage('Print in parallel') {
-          steps {
-            echo 'Hello 2'
-          }
-        }
-
-      }
-    }
-
-    stage('end') {
+    stage('NPM Build') {
       steps {
-        sh 'echo \'done\''
-      }
-    }
-
+        sh "npm install"
+        sh "npm start"
+          }
+        }
   }
 }
